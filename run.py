@@ -9,7 +9,7 @@ from utils import *
 
 
 # Convert Labelbox JSON file into YOLO-format labels ---------------------------
-def convert_labelbox_json(name, file):
+def convert_labelbox_json(name, file, image_folder):
     # Create folders
     path = make_folders()
 
@@ -56,6 +56,8 @@ def convert_labelbox_json(name, file):
 
     # Split data into train, test, and validate files
     split_files(name, file_name)
+    dir1 = os.getcwd() + '\out\images'
+    cp image_folder dir1
     print('Done. Output saved to %s' % (os.getcwd() + os.sep + path))
 
 
@@ -67,9 +69,9 @@ if __name__ == '__main__':
     
     parser.add_argument('--json_file_dir', help="Directory path to json files.", type=str)
     parser.add_argument('--folder_name', help="Name of the folder", type=str)
-    #parser.add_argument('--image_folder_dir', help="Directory path to image folder.", type=str)
+    parser.add_argument('--image_folder_dir', help="Directory path to image folder.", type=str)
     
     opt = parser.parse_args()
-    convert_labelbox_json(name=opt.folder_name , file= opt.json_file_dir)
+    convert_labelbox_json(name=opt.folder_name , file= opt.json_file_dir, image_folder = opt.image_folder_dir)
     # zip results
     # os.system('zip -r ../coco.zip ../coco')
