@@ -67,7 +67,7 @@ if __name__ == '__main__':
     
     parser.add_argument('--json_file_dir', help="Directory path to json files.", type=str)
     parser.add_argument('--folder_name', help="Name of the folder", type=str)
-    parser.add_argument('--image_folder_dir', help="Directory path to image folder.", type=str)
+    #parser.add_argument('--image_folder_dir', help="Directory path to image folder.", type=str)
     
     opt = parser.parse_args()
     convert_labelbox_json(name=opt.folder_name , file= opt.json_file_dir)
