@@ -59,8 +59,8 @@ def convert_labelbox_json(name, file, image_folder):
     split_files(name, file_name)
 
     #shutil.copyfile(image_folder, os.getcwd() + '\out\images')
-    dir1 = os.getcwd() + '\out\images'
-    cp image_folder dir1
+   
+    cp.cp(image_folder, os.getcwd() + '\out\images')
     
     print('Done. Output saved to %s' % (os.getcwd() + os.sep + path))
 
