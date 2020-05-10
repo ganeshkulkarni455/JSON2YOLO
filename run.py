@@ -7,6 +7,7 @@ from PIL import Image
 
 from utils import *
 
+import shutil
 
 # Convert Labelbox JSON file into YOLO-format labels ---------------------------
 def convert_labelbox_json(name, file, image_folder):
@@ -56,8 +57,9 @@ def convert_labelbox_json(name, file, image_folder):
 
     # Split data into train, test, and validate files
     split_files(name, file_name)
-    dir1 = os.getcwd() + '\out\images'
-    cp image_folder dir1
+
+    shutil.copyfile(image_folder, os.getcwd() + '\out\images')
+    
     print('Done. Output saved to %s' % (os.getcwd() + os.sep + path))
 
 
